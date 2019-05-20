@@ -10,11 +10,13 @@ class GamesController < ApplicationController
   def score
     # @put_in_view = is_english?(params[:word])
 
-    @result = 'Well done!'
+    @result = 'Congrats! - The word is valid according to the grid and is
+     an English word'
     if !english?(params[:word])
-      @result = 'Not an English word'
+      @result = "The word may be valid according to the grid,
+       but is not a valid English word"
     elsif !word_check?(params[:word], params[:letters])
-      @result = 'Not in the grid'
+      @result = "The word can't be built out of the original grid"
     end
   end
 
